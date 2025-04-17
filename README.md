@@ -1,4 +1,4 @@
-# ScheduleBeauty
+# LTD.2025.1.031-Schedule-Beauty
 
 Agenda simples para esteticistas, com foco em organização de atendimentos e controle de produtos necessários para cada procedimento.
 
