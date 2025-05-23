@@ -38,8 +38,8 @@ Automatizar a organização da agenda de atendimentos de esteticistas, exibindo 
 
 ## 🧱 Tecnologias Utilizadas
 
-- **Linguagem**: Java
-- **Interface gráfica**: Java Swing
+- **Linguagem**: Phyton
+- **Interface gráfica**: Tkinter
 - **Banco de Dados**: SQLite
 - **Conector**: JDBC
 - **Ferramentas de modelagem**: Draw.io, Graphviz
