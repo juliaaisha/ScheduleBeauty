@@ -1,0 +1,9 @@
+# Ignorar arquivos e pastas temporárias
+__pycache__/
+*.pyc
+
+# Ignorar banco de dados local
+*.db
+
+# Ignorar arquivos de ambiente (se tiver)
+.env
