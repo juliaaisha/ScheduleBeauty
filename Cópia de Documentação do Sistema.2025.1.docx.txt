@@ -1,0 +1,460 @@
+﻿Documentação do Sistema
+
+
+
+
+SUMÁRIO
+
+
+Dados do Cliente        2
+Equipe de Desenvolvimento        3
+1. Introdução        4
+2. Objetivo        5
+3. Escopo        6
+4. Backlogs do Produto        7
+5. Cronograma        8
+6. Materiais e Métodos        9
+7. Resultados        10
+8. Conclusão        11
+9. Homologação do MVP junto ao cliente        12
+10. Divulgação        13
+11. Carta de Apresentação        15
+12. Carta de Autorização        16
+13. Relato individual do processo        18
+
+
+
+
+
+
+
+
+
+
+________________
+
+
+
+
+Dados do Cliente
+	Título do Projeto: ScheduleBeauty: Agenda simples para esteticistas. 
+Cliente: Edmeria Aparecida Pires Dos Santos.
+CNPJ/CPF: 311.691.918-60
+Contato: 
+Email do contato: meriapires@gmail.com
+________________
+
+
+
+
+Equipe de Desenvolvimento 
+	
+
+Nome completo
+	Curso
+	Disciplina
+	Julia Aisha Pires Dos Santos
+	Análise e desenvolvimento de Sistemas
+	Programação orientada a objetos em JAVA.
+	Beatriz Balcari
+	Análise e desenvolvimento de Sistemas
+	Programação orientada a objetos em JAVA.
+	
+
+Professor Orientador
+	Julio Kesede Rodrigues 
+	
+
+1. Introdução
+	
+
+
+
+O problema de nosso cliente era o gasto excessivo de tempo conferindo os produtos necessários para cada atendimento e organizando agendamentos manualmente. Esse processo pode levar a erros, atrasos e perda de produtividade. 
+O ScheduleBeauty resolve esse problema ao oferecer uma agenda digital que exibe, de forma clara e organizada, os horários de atendimento, os procedimentos agendados e os produtos necessários para cada serviço. Dessa forma, a esteticista pode se concentrar no que realmente importa: oferecer um atendimento de qualidade.
+O sistema será desenvolvido em Python , proporcionando uma solução simples, acessível e eficiente para a gestão de agendamentos.
+Resumindo: O ScheduleBeauty otimiza o tempo da esteticista, reduzindo erros na conferência de produtos e tornando o agendamento mais ágil e prático.
+
+
+
+
+
+
+2. Objetivo
+	
+
+Automatizar a organização da agenda de atendimentos de esteticistas, exibindo os horários agendados, os procedimentos a serem realizados e os produtos necessários para cada serviço. Isso reduzirá o tempo gasto na conferência manual dos produtos e facilitará o agendamento de clientes, tornando o processo mais ágil e eficiente.
+
+
+
+
+
+
+3. Escopo
+	
+
+
+
+Principais requisitos: 
+
+
+* Agenda de Atendimentos: Exibição dos horários agendados, clientes e procedimentos a serem realizados.
+
+* Lista de Produtos por Atendimento: Registro dos produtos necessários para cada procedimento, reduzindo o tempo gasto na conferência manual.
+Limites de Implementação:
+   * O sistema será de uso individual, sem suporte para múltiplos usuários.
+
+   * Não incluirá funcionalidades avançadas, como integração com notificações, pagamentos ou banco de dados.
+
+
+
+
+      4. Backlogs do Produto
+	
+
+Tivemos uma reunião com nossa cliente e listamos os principais requisitos necessários em nosso projeto:
+      1. Cadastro de Agendamentos: Permitir que a esteticista registre novos agendamentos, informando data, horário, nome do cliente e procedimento a ser realizado.
+
+      2. Visualização da Agenda: Exibir os agendamentos de forma organizada, permitindo que a esteticista veja rapidamente seus compromissos do dia.
+
+      3. Lista de Produtos por Procedimento: Associar automaticamente os produtos necessários a cada procedimento, reduzindo o tempo de conferência manual.
+
+      4. Edição e Remoção de Agendamentos: Possibilitar alterações nos agendamentos e exclusão de compromissos quando necessário.
+
+      5. Interface Simples e Intuitiva: O sistema será fácil de usar, sem necessidade de treinamento avançado.
+
+
+
+
+
+         5. Cronograma
+	
+
+
+
+Maio (2ª quinzena)
+	Definição da estrutura do sistema e criação dos primeiros arquivos
+	Junho   (1ª quinzena)
+	Desenvolvimento da interface com Tkinter
+	Junho (2ª quinzena)
+	Implementação do cadastro de agendamentos e integração com SQLite
+	Julho (1ª quinzena)
+	Módulo de controle de estoque e relatórios
+	Julho (2ª quinzena)
+	Testes finais, documentação e preparação para apresentação
+	
+
+
+
+
+
+         6. Materiais e Métodos
+	
+
+
+
+         1. Modelagem do sistema: 
+
+
+  
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+Tecnologias utilizadas: Tecnologias Utilizadas
+Para o desenvolvimento do sistema ScheduleBeauty, foram escolhidas ferramentas e tecnologias que facilitam tanto a criação da interface gráfica quanto o armazenamento e manipulação dos dados. O sistema foi desenvolvido em Python, utilizando a biblioteca Tkinter para a criação da interface gráfica. O armazenamento de dados é feito com SQLite, garantindo uma solução leve e eficiente. Para modelagem do sistema, foram utilizados diagramas UML produzidos com ferramentas como Lucidchart e Draw.io. O código foi escrito e organizado no Visual Studio Code (VSCode).
+
+
+
+
+
+
+         2. Arquitetura do sistema: 
+         3.               7. Resultados
+	
+
+            4. Protótipo: 
+
+
+
+
+TELA PRINCIPAL:  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+AGENDAMENTOS: 
+  
+
+
+
+
+
+PROCEDIMENTOS: 
+  
+
+
+
+ESTOQUE DOS PRODUTOS:
+  
+
+
+
+
+
+
+
+RELATÓRIOS :
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            5. Códigos das principais funcionalidades: Estrutura do Banco (backend.py)
+# Tabelas principais: produtos, procedimentos, agendamentos
+               def criar_banco():
+    with sqlite3.connect('schedule_beauty.db') as conn:
+        conn.execute('''CREATE TABLE IF NOT EXISTS produtos (
+                        id INTEGER PRIMARY KEY, nome TEXT, quantidade INTEGER, minimo INTEGER)''')
+        conn.execute('''CREATE TABLE IF NOT EXISTS agendamentos (
+                        id INTEGER PRIMARY KEY, cliente TEXT, data TEXT, procedimento TEXT)''')
+            * Função: Cria DB SQLite com tabelas essenciais
+            * Chaves: produtos (estoque), agendamentos (clientes)
+
+
+ Cadastro Rápido (appointments.py)
+def salvar_agendamento():
+    cliente = entrada_cliente.get()  # Dados do form
+    if not cliente: return           # Validação simples
+    novo_agendamento(cliente, data, procedimento)  # Salva no DB
+    treeview.insert("", "end", values=(cliente, data))  # Atualiza UI
+            * 3 Passos: Coleta → Valida → Persiste
+            * UI: Atualiza tabela automaticamente
+
+
+
+
+Gestão de Estoque (products.py)
+def add_produto():
+    try:
+        cadastrar_produto(nome, int(qtd), int(minimo))  # Conversão segura
+        treeview.insert("", "end", values=(nome, qtd))  # Feedback imediato
+    except ValueError:
+        messagebox.showerror("Erro", "Use números válidos!")
+
+
+Interface (main.py)
+python
+Copy
+Download
+# Configuração visual
+style = ttk.Style()
+style.configure('TButton', foreground='#ff8af0', font=('Arial', 12))
+
+
+# Logo adaptável
+try:
+    logo = ImageTk.PhotoImage(Image.open("logo.png").resize((150,150)))
+    tk.Label(image=logo).pack()
+except:
+    tk.Label(text="LOGO").pack()  # Fallback simples
+            * Custom: Cores brandas e carregamento seguro de imagens
+
+
+
+
+
+
+            8. Conclusão
+	
+
+            6. Impacto do sistema:  Nosso sistema impactou muito positivamente nossa cliente, pois agora ela se organiza melhor e com praticidade, otimizando seu serviço e utilizando seu tempo para outras coisas/afazeres.
+
+
+            7. Melhorias Futuras: Implementar um design ainda mais fácil e bonito para nossa cliente e aprimorar nossas funcionalidades, adicionando requisitos como: Exportar relatórios (PDF/Excel), Alertas de estoque baixo, Backup automático.
+
+
+
+
+
+
+            9. Divulgação
+	
+
+            8. Linkedin do Projeto
+
+
+  
+
+	https://www.linkedin.com/in/julia-aisha-24082005ju/details/projects/
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            10. Carta de Apresentação
+	Vimos por desta apresentar o grupo de acadêmicos do Centro Universitário Unimetrocamp, localizada à Rua Sales de Oliveira, 1661 - Campinas - SP, a fim de convidá-lo a participar de uma atividade extensionista associada ao componente curricular Programação Orientada a Objetos em Java, sob responsabilidade do orientador Prof. Kesede Rodrigues Julio (profkesede64@gmail.com).
+Em consonância ao Plano Nacional de Educação vigente, o Centro Universitário Unimetrocamp promove o Desenvolvimento de Software que, norteados pela metodologia de Gerenciamento Ágil Scrum, tem por princípios fundantes o diagnóstico dos problemas/demandas/necessidades, a participação ativa dos interessados/públicos participantes, a construção dialógica, coletiva e experiencial de conhecimentos, o planejamento de ações, o desenvolvimento e avaliação das ações, a sistematização dos conhecimentos, a avaliação das ações desenvolvidas.
+Nesse contexto, a disciplina acima mencionada tem como principal escopo os temas relacionados à Programação Orientada à Objeto / Padrões de Projetos de Software, no que diz respeito ao desenvolvimento de um software utilizando Programação Orientada à Objeto.
+Sendo assim, pedimos o apoio de Edmeria Aparecida Pires Dos Santos para a realização das seguintes atividades: levantamento de requisitos, validação das entregas parciais, revalidação dos requisitos, homologação do MVP, ou qualquer outra intervenção que auxilie no desenvolvimento das competências de nossos acadêmicos e ao mesmo tempo possa contribuir para a comunidade em que estamos inseridos.
+Aproveitamos a oportunidade para solicitarmos, em caso de aceite, que a parceria seja formalizada, mediante assinatura da Carta de Autorização, as atividades e informações que o(s) aluno(s) poderá(ão) ter acesso.
+Em tempo, registramos ainda, o convite para a participação de todos os interessados no fórum semestral de acompanhamento e avaliação das atividades realizadas, que está previsto para o final deste semestre, e será comunicado previamente em convite específico.
+Desde já nos colocamos à sua disposição para quaisquer esclarecimentos.
+Atenciosamente,
+Campinas, 22  de Maio de 2025.  
+
+
+____________________________________
+Assinatura Direção Acadêmica da IES
+   
+____________________________________
+Assinatura Docente
+
+
+
+
+            11. Carta de Autorização
+	Eu, Edmeria Aparecida Pires Dos Santos, Esteticista, da empresa Mania De beleza, autorizo a realização das seguintes atividades acadêmicas do componente extensionista Programação Orientada a Objetos em Java TURMA 3002, do Centro Universitário Unimetrocamp, sob orientação do Prof. Kesede Rodrigues Julio.
+ 
+Atividades: Coleta de dados sobre a Empresa, fotos.
+	 
+	 
+	 
+	 
+	Conforme combinado em contato prévio, as atividades acima descritas são autorizadas para os seguintes alunos:
+ 
+Nome dos/das alunos/as
+	Curso
+	Matrícula
+	Julia Aisha Pires Dos Santos 
+	Programação Orientada a Objetos em Java 
+	202402411021 
+	Beatriz Balcari 
+	Programação Orientada a Objetos em Java 
+	202402409891 
+	 
+	 
+	 
+	 
+	 
+	 
+	
+
+	
+
+	
+
+	 
+Declaro que fui informado por meio da Carta de Apresentação sobre as características e objetivos das atividades que serão realizadas na organização/instituição/empresa a qual represento e afirmo estar ciente de tratar-se de uma atividade realizada com intuito exclusivo de ensino de alunos de graduação, sem a finalidade de exercício profissional.
+ 
+Desta forma, autorizo, em caráter de confidencialidade:
+ 
+            *  o acesso a informações e dados que forem necessários à execução da atividade;
+            *  o registro de imagem por meio de fotografias;
+            *  outro: (especificar)
+ 
+ 
+Campinas, 22 de Maio de 2025.
+ 
+Edmeria Aparecida Pires Dos Santos, Mania De Beleza.
+
+
+            12. Relato individual do processo
+	
+
+Julia Aisha Pires Dos Santos
+	Olá, me chamo Julia Aisha e irei dissertar sobre minha experiência no
+processo da construção de um Software diretamente para um cliente real. Bom primeiramente
+sobre a organização, achei muito interessante o processo que o Professor e orientador Kesede
+usou, pois assim todos fizemos um pouco e a organização foi feita de forma clara e direta, as
+reuniões e o Jira ajudam bastante a visualizar o projeto por si só e isso facilita muito no dia a
+dia. Não irei mentir fiquei um pouco frustrada pois achei que seria mais fácil, mas lidar com
+pessoas (clientes e a própria equipe) demanda paciência e clareza. Em relação a nossa cliente
+foi tudo muito tranquilo levando em conta que a mesma deixou claro o que precisava e faltava,
+a comunicação e compreensão facilitaram muito, ela queria algo simples, então para nós
+iniciantes que nunca tínhamos desenvolvido um projeto foi mais tranquilo, apesar de ter sido
+sim difícil (e muito) para mim realizar e finalizar o projeto por si só, não só a parte do Software
+mas também a organização, pois foi tudo muito novo. Porém só tenho a agradecer ao
+aprendizado que recebi nesse projeto e espero poder finalizá-lo da melhor forma possível.
+	
+
+Beatriz Balcari
+	Foi um trabalho complicado pois não tínhamos muito conhecimento, mas conseguimos!
+	
+
+ 
+
+
+
+
+/18
